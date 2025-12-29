@@ -346,3 +346,64 @@ Udemy「100 Days of Code」Day5 の学習記録。
 - 入力値チェックの基本
 - 無限ループと `break` の使い方
 - 想定外入力を考慮したプログラム設計
+
+
+--------------------------------------------------------------------------------------------------
+
+
+[Day8]
+
+#Udemy「100 Days of Code」Day8 の学習記録。
+
+##内容
+- シーザー暗号（Caesar Cipher）を使って、文字列を暗号化（encode）・復号（decode）するプログラムを作成した。
+- アルファベット（a-z）のみを暗号化対象とする
+- 指定した数（shift）だけ文字をずらす
+- decode の場合は、ずらす方向を逆にする
+- 空白・数字・記号はそのまま出力する
+
+##使用技術
+- Python
+- list（アルファベット配列）
+- while / for
+- if / else
+- 関数（def）
+- %（剰余演算子）
+
+##工夫点（最小改造）
+アルファベットかどうかを letter in alphabet で判定→ アルファベット以外（数字・空白・記号）は 変換せずそのまま出力
+shifted_position %= len(alphabet) を使い、z を超えた場合に a に戻るようにした
+encode / decode を 1つの関数で共通処理できるようにした
+decode の場合のみ shift をマイナスにすることで処理を簡潔にした
+
+##QA視点（観点）
+
+###観点1：正常値（encode）
+入力：encode, メッセージ=yoitenki, shift=7
+期待結果：fvpalurp
+
+###観点2：正常値（decode）
+入力：decode, メッセージ=fvpalurp, shift=7
+期待結果：yoitenki
+
+###観点3：異常値（メッセージが空）
+入力：メッセージが空文字
+期待結果：Here is the decoded result:（結果が空のまま表示される）
+
+###観点4：異常値（shift number が空）
+入力：shift に空白
+期待結果：ValueError が発生する
+
+###観点5：異常値（メッセージに数字が含まれる）
+入力：encode, メッセージ=yo1tenki, shift=7
+期待結果：fv1alurp→ 数字 1 は変換されず、そのまま出力される
+
+###観点6：異常値（shift number にアルファベット）
+入力：shift に abc
+期待結果：ValueError が表示される
+
+
+##学習メモ
+- for letter in text によって、文字列は 1文字ずつ処理される
+- letter in alphabet は「今の1文字がアルファベットか？」を判定している
+- % は「最初に戻す命令」ではなく範囲（0〜25）に収めるための計算
