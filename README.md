@@ -14,7 +14,7 @@ Python の len() 関数を使用して文字数をカウントする。
 - 入力文字数の上限チェックは行わない
 
 ---
-
+　
 ## 実行例
 What is your name?
 Angela
