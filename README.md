@@ -160,15 +160,15 @@ Udemy「100 Days of Code」Day3 の課題。
   - choice2: `wait`
   - choice3: `yellow`
 - **期待結果**
-  - 「You found the treasure. You Win!」と表示される
+  - 「You found the treasure. You Win!」と表示された
 
 ---
 
 ### 観点2：方向入力にスペースのみを入力した場合
-- **入力**
+- **入力*
   - choice1: `" "`（半角スペース1文字）
 - **期待結果**
-  - 条件に一致せず「Game Over」が表示される
+  - You fell into a hole.Game Overが表示された
 
 ---
 
@@ -176,7 +176,7 @@ Udemy「100 Days of Code」Day3 の課題。
 - **入力**
   - choice3: `green`
 - **期待結果**
-  - 「You chose a door that doesn't exist. Game Over.」と表示される
+  - 「You chose a door that doesn't exist. Game Over.」と表示された
 
 ---
 
@@ -186,7 +186,7 @@ Udemy「100 Days of Code」Day3 の課題。
   - choice2: `WAIT`
   - choice3: `YELLOW`
 - **期待結果**
-  - すべて小文字に変換され、勝利メッセージが表示される
+  - すべて小文字に変換され、勝利メッセージが表示された
 
 ---
 
@@ -219,17 +219,18 @@ Udemy「100 Days of Code」Day5 の学習記録。
 - 入力値をそのまま使わず、エラーが起きるケースを確認しやすくした
 
 ## QA視点（観点）
+
 ### 観点1：すべて0を入力した場合
 - 入力：letter=0, number=0, symbol=0  
 - 期待結果：`Your password is:` のみ表示される
 
 ### 観点2：スペースのみを入力した場合
-- 入力：`" "`  
-- 期待結果：ValueError が発生し、エラーメッセージが表示される
+- 入力：letterの入力に`" "`を入力
+- 期待結果：ValueError:invalid literal for int()が表示される
 
 ### 観点3：数字以外を入力した場合
-- 入力：`abc`  
-- 期待結果：ValueError が表示される
+- 入力：letterに5 numberにabc　symbolに３  
+- 期待結果：ValueError:invalid literal for int()が表示される
 
 ### 観点4：正常値入力
 - 入力：letter=5, symbol=3, number=1  
@@ -284,52 +285,33 @@ Udemy「100 Days of Code」Day5 の学習記録。
 ## テスト観点
 
 ### 観点1：正常値を入力した場合
-**入力**
-- 3
-
-**期待結果**
-- `数字OK: 3` と表示される  
-- その後 `ループ終了` が表示される
+- 入力:3
+- 期待結果:`数字OK: 3` と表示される  その後 `ループ終了` が表示された
 
 ---
 
 ### 観点2：スペースのみを入力した場合
-**入力**
-- `" "`（半角スペース1文字）
-
-**期待結果**
-- `数字じゃないです` と表示される  
-- 再度「整数を入れてください」と表示される
+- 入力:`" "`（半角スペース1文字）
+- 期待結果:`数字じゃないです` と表示される  再度「整数を入れてください」と表示された
 
 ---
 
 ### 観点3：数字以外を入力した場合
-**入力**
-- `X`
-
-**期待結果**
-- `数字じゃないです` と表示される  
-- 再度入力を求められる
+- 入力:`X`
+- 期待結果:`数字じゃないです` と表示される  再度入力を求められた
 
 ---
 
 ### 観点4：小数点を入力した場合
-**入力**
-- `3.5`
-
-**期待結果**
-- `isdigit()` が false になるため  
-- `数字じゃないです` と表示され、再入力を求められる
+- 入力:`3.5`
+- 期待結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められた
 
 ---
 
 ### 観点5：記号と数字を入力した場合
-**入力**
-- `-3`
+- 入力:`-3`
 
-**期待結果**
-- `isdigit()` が false になるため  
-- `数字じゃないです` と表示され、再入力を求められる
+-期待結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められた
 
 ---
 
@@ -379,28 +361,28 @@ decode の場合のみ shift をマイナスにすることで処理を簡潔に
 ##QA視点（観点）
 
 #観点1：正常値（encode）
-入力：encode, メッセージ=yoitenki, shift=7
-期待結果：fvpalurp
+-入力：encode, メッセージ=yoitenki, shift=7
+-期待結果：Here is the decoded result　fvpalurpと表示された
 
 #観点2：正常値（decode）
-入力：decode, メッセージ=fvpalurp, shift=7
-期待結果：yoitenki
+-入力：decode, メッセージ=fvpalurp, shift=7
+-期待結果：Here is the decoded result　yoitenkiと表示された
 
 #観点3：異常値（メッセージが空）
-入力：メッセージが空文字
-期待結果：Here is the decoded result:（結果が空のまま表示される）
+-入力：mode=decode message=空文字　shift=7
+-期待結果：Here is the decoded result（結果が空のまま表示された）変更結果は空のままだった
 
 #観点4：異常値（shift number が空）
-入力：shift に空白
-期待結果：ValueError が発生する
+-入力：mode=encode message=yoitenki　shift=" "
+-期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
 
 #観点5：異常値（メッセージに数字が含まれる）
-入力：encode, メッセージ=yo1tenki, shift=7
-期待結果：fv1alurp→ 数字 1 は変換されず、そのまま出力される
+-入力：mode=encode message=yoitenki　shift=7
+-期待結果：Here is the decoded result fv1alurpと表示された　 数字 1 は変換されず、そのまま出力された
 
 #観点6：異常値（shift number にアルファベット）
-入力：shift に abc
-期待結果：ValueError が表示される
+-入力：mode=encode message=yoitenki　shift=abc
+-期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
 
 
 ##学習メモ
@@ -441,27 +423,23 @@ Udemy「100 Days of Code」Day9 の学習記録。
 ##QA視点（観点）
 
 #観点1：名前が未入力の場合
-入力：""
-期待結果：
-名前を入力してください と表示され、再度入力を求められる
+-入力：name に空文字"　"を入力
+-期待結果："名前を入力してください" と表示され、再度入力を求められた
 
 #観点2：名前に数字を入力した場合
-入力：20
-期待結果：
-文字列としてそのまま名前に使用され、正常に処理される
+-入力：name=20　bid=100 continue=no
+-期待結果：20が入札者名としてそのまま使用され、20 is the winner with a bid of $100と表示される
 
 #観点3：入札金額に小数点を含む数字を入力した場合
-入力：20.5
-期待結果：
-ValueError が発生する
+-入力：name=yusuke bid=20.5
+-期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
 
 #観点4：入札金額に数字以外を入力した場合
-入力：yusuke
-期待結果：
-ValueError が発生する
+-入力：name=yusuke bid=abc
+-期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
 
 #観点5：入札継続確認で yes / no 以外を入力した場合
-入力：yusuke
+入力：name=yusuke bid=50 continue=
 期待結果：
 入札が継続され、次の入札者の入力に進む
 
