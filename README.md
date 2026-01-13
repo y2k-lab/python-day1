@@ -26,29 +26,28 @@ Angela
 ## テスト観点
 
 ### 観点1：空文字を入力した場合
-入力  
-""（何も入力せず Enter）
+-入力:" "（何も入力せず Enter）
 
-期待結果  
-0 が表示される
+-期待結果:0が表示される
+
+-実行結果:0が表示された
 
 ---
-
 ### 観点2：スペースのみを入力した場合
-入力  
-" "（半角スペース1文字）
+-入力:" "（半角スペース1文字）
 
-期待結果  
-1 が表示される
+-期待結果:1が表示される
+
+-実行結果:1が表示された
 
 ---
 
 ### 観点3：上限を超えた文字数を入力した場合
-入力  
-100文字の文字列
+-入力:100文字の文字列
 
-期待結果  
-上限チェックがないため、入力された文字数がそのまま表示される
+-期待結果:上限チェックがないため、入力された文字数がそのまま表示される
+
+-実行結果:上限チェックがないため、入力された文字数がそのまま表示された
 
 ---
 
@@ -82,48 +81,41 @@ print(f"bill={bill}, tip={tip}, people={people}")
 
 ### 観点1：正常値
 
-**入力**
-- 合計金額：150
-- チップ割合：10%
-- 人数：5
+-入力: 合計金額=150 チップ割合=10% 人数=5
 
-**期待結果**
-- 1人あたりの支払金額として `33.0$` が表示される
+-期待結果:1人あたりの支払金額として `33.0$` が表示される
+
+-実行結果:1人あたりの支払金額として `33.0$` が表示された
 
 ---
 
 ### 観点2：合計金額にスペースを入力
 
-**入力**
-- 合計金額：" "（半角スペース1文字）
+-入力: 合計金額=" "（半角スペース1文字）
 
-**期待結果**
-- 数値に変換できないため `ValueError` が発生する
+-期待結果:数値に変換できないため `ValueError` が発生する
+
+-実行結果:数値に変換できないため `ValueError` が発生した
 
 ---
 
 ### 観点3：人数を0にする
 
-**入力**
-- 合計金額：150
-- チップ割合：10%
-- 人数：0
+-入力: 合計金額=150 チップ割合=10% 人数=0
 
-**期待結果**
-- 0で割る処理となりエラーが発生する（ZeroDivisionError）
+-期待結果:0で割る処理となりエラーが発生する（ZeroDivisionError）
+
+-実行結果:0で割る処理となりエラーが発生した（ZeroDivisionError）
 
 ---
 
 ### 観点4：チップ割合を0にする
 
-**入力**
-- 合計金額：150
-- チップ割合：0%
-- 人数：5
+-入力:合計金額=150 チップ割合=0% 人数=5
 
-**期待結果**
-- チップは加算されず、  
-  合計金額150を5人で割った `30$` が表示される
+-期待結果:チップは加算されず、合計金額150を5人で割った `30$` が表示される
+
+-実行結果:チップは加算されず、合計金額150を5人で割った `30$` が表示された
 
 
 
@@ -155,38 +147,39 @@ Udemy「100 Days of Code」Day3 の課題。
 ## QA視点（観点）
 
 ### 観点1：正常系の入力
-- **入力**
-  - choice1: `left`
-  - choice2: `wait`
-  - choice3: `yellow`
-- **期待結果**
-  - 「You found the treasure. You Win!」と表示された
+
+-入力: choice1=`left` choice2=`wait` choice3=`yellow`
+
+-期待結果:「You found the treasure. You Win!」と表示される
+
+-実行結果:「You found the treasure. You Win!」と表示された
 
 ---
 
 ### 観点2：方向入力にスペースのみを入力した場合
-- **入力*
-  - choice1: `" "`（半角スペース1文字）
-- **期待結果**
-  - You fell into a hole.Game Overが表示された
+-入力: choice1= `" "`（半角スペース1文字）
+
+-期待結果:You fell into a hole.Game Overが表示される
+
+-実行結果:You fell into a hole.Game Overが表示された
 
 ---
 
 ### 観点3：色選択で想定外の値を入力した場合
-- **入力**
-  - choice3: `green`
-- **期待結果**
-  - 「You chose a door that doesn't exist. Game Over.」と表示された
+-入力: choice3=`green`
+
+-期待結果:「You chose a door that doesn't exist. Game Over.」と表示される
+
+-実行結果:「You chose a door that doesn't exist. Game Over.」と表示された
 
 ---
 
 ### 観点4：大文字入力でも正しく判定されるか
-- **入力**
-  - choice1: `LEFT`
-  - choice2: `WAIT`
-  - choice3: `YELLOW`
-- **期待結果**
-  - すべて小文字に変換され、勝利メッセージが表示された
+-入力: choice1= `LEFT` choice2= `WAIT` choice3= `YELLOW`
+
+-期待結果:すべて小文字に変換され、勝利メッセージが表示される
+
+-実行結果:すべて小文字に変換され、勝利メッセージが表示された
 
 ---
 
@@ -221,20 +214,36 @@ Udemy「100 Days of Code」Day5 の学習記録。
 ## QA視点（観点）
 
 ### 観点1：すべて0を入力した場合
-- 入力：letter=0, number=0, symbol=0  
-- 期待結果：`Your password is:` のみ表示される
+- 入力:letter=0, number=0, symbol=0
+
+- 期待結果:`Your password is:` のみ表示される
+
+- 実行結果:`Your password is:` のみ表示された
+
 
 ### 観点2：スペースのみを入力した場合
-- 入力：letterの入力に`" "`を入力
-- 期待結果：ValueError:invalid literal for int()が表示される
+- 入力:letterの入力に`" "`を入力
+
+- 期待結果:ValueError:invalid literal for int()が表示される
+
+- 実行結果:ValueError:invalid literal for int()が表示された
+
 
 ### 観点3：数字以外を入力した場合
-- 入力：letterに5 numberにabc　symbolに３  
-- 期待結果：ValueError:invalid literal for int()が表示される
+- 入力:letterに5 numberにabc　symbolに３
+  
+- 期待結果:ValueError:invalid literal for int()が表示される
+
+- 実行結果:ValueError:invalid literal for int()が表示された
 
 ### 観点4：正常値入力
-- 入力：letter=5, symbol=3, number=1  
-- 期待結果：英字5個・記号3個・数字1個のランダムなパスワードが生成される
+- 入力:letter=5, symbol=3, number=1
+
+- 期待結果:英字5個・記号3個・数字1個のランダムなパスワードが生成される
+
+- 実行結果:英字5個・記号3個・数字1個のランダムなパスワードが生成された
+
+
 
 --------------------------------------------------------------------------------------------------
 [Day6]
@@ -286,32 +295,46 @@ Udemy「100 Days of Code」Day5 の学習記録。
 
 ### 観点1：正常値を入力した場合
 - 入力:3
-- 期待結果:`数字OK: 3` と表示される  その後 `ループ終了` が表示された
+
+- 期待結果:`数字OK: 3` と表示される  その後 `ループ終了` が表示される
+
+- 実行結果:`数字OK: 3` と表示された  その後 `ループ終了` が表示された
 
 ---
 
 ### 観点2：スペースのみを入力した場合
 - 入力:`" "`（半角スペース1文字）
-- 期待結果:`数字じゃないです` と表示される  再度「整数を入れてください」と表示された
+
+- 期待結果:`数字じゃないです` と表示される  再度「整数を入れてください」と表示される
+
+- 実行結果:`数字じゃないです` と表示された  再度「整数を入れてください」と表示された
 
 ---
 
 ### 観点3：数字以外を入力した場合
 - 入力:`X`
-- 期待結果:`数字じゃないです` と表示される  再度入力を求められた
+
+- 期待結果:`数字じゃないです` と表示される  再度入力を求められる
+
+- 実行結果:`数字じゃないです` と表示される  再度入力を求められた
 
 ---
 
 ### 観点4：小数点を入力した場合
 - 入力:`3.5`
-- 期待結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められた
+
+- 期待結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められる
+
+- 実行結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められた
 
 ---
 
 ### 観点5：記号と数字を入力した場合
 - 入力:`-3`
 
--期待結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められた
+- 期待結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められる
+
+- 実行結果:`isdigit()` が false になるため  `数字じゃないです` と表示され、再入力を求められた
 
 ---
 
@@ -361,28 +384,56 @@ decode の場合のみ shift をマイナスにすることで処理を簡潔に
 ##QA視点（観点）
 
 #観点1：正常値（encode）
--入力：encode, メッセージ=yoitenki, shift=7
--期待結果：Here is the decoded result　fvpalurpと表示された
+- 入力:encode, メッセージ=yoitenki, shift=7
+
+- 期待結果:Here is the decoded result　fvpalurpと表示される
+
+- 実行結果:Here is the decoded result　fvpalurpと表示された
+
+---
 
 #観点2：正常値（decode）
--入力：decode, メッセージ=fvpalurp, shift=7
--期待結果：Here is the decoded result　yoitenkiと表示された
+- 入力:decode, メッセージ=fvpalurp, shift=7
+
+- 期待結果:Here is the decoded result　yoitenkiと表示される
+
+- 実行結果:Here is the decoded result　yoitenkiと表示された
+
+---
 
 #観点3：異常値（メッセージが空）
--入力：mode=decode message=空文字　shift=7
--期待結果：Here is the decoded result（結果が空のまま表示された）変更結果は空のままだった
+- 入力:mode=decode message=空文字　shift=7
+
+- 期待結果:Here is the decoded result（結果が空のまま表示された）変更結果は空のまま
+
+- 実行結果:Here is the decoded result（結果が空のまま表示された）変更結果は空のままだった
+
+---
 
 #観点4：異常値（shift number が空）
--入力：mode=encode message=yoitenki　shift=" "
--期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
+- 入力:mode=encode message=yoitenki　shift=" "
+
+- 期待結果:ValueError:invalid literal for int()が表示され、プログラムが停止する
+
+- 実行結果:ValueError:invalid literal for int()が表示され、プログラムが停止した
+
+---
 
 #観点5：異常値（メッセージに数字が含まれる）
--入力：mode=encode message=yoitenki　shift=7
--期待結果：Here is the decoded result fv1alurpと表示された　 数字 1 は変換されず、そのまま出力された
+- 入力:mode=encode message=yoitenki　shift=7
+
+- 期待結果:Here is the decoded result fv1alurpと表示される　 数字 1 は変換されず、そのまま出力される
+
+- 実行結果:Here is the decoded result fv1alurpと表示された　 数字 1 は変換されず、そのまま出力された
+
+---
 
 #観点6：異常値（shift number にアルファベット）
--入力：mode=encode message=yoitenki　shift=abc
--期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
+- 入力:mode=encode message=yoitenki　shift=abc
+
+- 期待結果:ValueError:invalid literal for int()が表示され、プログラムが停止する
+
+- 実行結果:ValueError:invalid literal for int()が表示され、プログラムが停止した
 
 
 ##学習メモ
@@ -423,24 +474,49 @@ Udemy「100 Days of Code」Day9 の学習記録。
 ##QA視点（観点）
 
 #観点1：名前が未入力の場合
--入力：name に空文字"　"を入力
--期待結果："名前を入力してください" と表示され、再度入力を求められた
+- 入力:name に空文字"　"を入力
+
+- 期待結果:"名前を入力してください" と表示され、再度入力を求められる
+
+- 実行結果:"名前を入力してください" と表示され、再度入力を求められた
+
+---
 
 #観点2：名前に数字を入力した場合
--入力：name=20　bid=100 continue=no
--期待結果：20が入札者名としてそのまま使用され、20 is the winner with a bid of $100と表示される
+- 入力:name=20　bid=100 continue=no
+
+- 期待結果:20が入札者名としてそのまま使用され、20 is the winner with a bid of $100と表示される
+
+- 実行結果:20が入札者名としてそのまま使用され、20 is the winner with a bid of $100と表示された
+
+---
 
 #観点3：入札金額に小数点を含む数字を入力した場合
--入力：name=yusuke bid=20.5
--期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
+- 入力:name=yusuke bid=20.5
+
+- 期待結果:ValueError:invalid literal for int()が表示され、プログラムが停止する
+
+- 実行結果:ValueError:invalid literal for int()が表示され、プログラムが停止した
+
+---
 
 #観点4：入札金額に数字以外を入力した場合
--入力：name=yusuke bid=abc
--期待結果：ValueError:invalid literal for int()が表示され、プログラムが停止した
+- 入力:name=yusuke bid=abc
+
+- 期待結果:ValueError:invalid literal for int()が表示され、プログラムが停止する
+
+- 実行結果:ValueError:invalid literal for int()が表示され、プログラムが停止した
+
+---
 
 #観点5：入札継続確認で yes / no 以外を入力した場合
--入力：name=yusuke bid=50 continue=abc
--期待結果：abcはyesではないため、入札は終了し、現在の入札者が勝者として表示された
+- 入力:name=yusuke bid=50 continue=abc
+
+- 期待結果:abcはyesではないため、入札は終了し、現在の入札者が勝者として表示される
+
+- 実行結果:abcはyesではないため、入札は終了し、現在の入札者が勝者として表示された
+
+---
 
 ##学習ポイント
 辞書を使って「名前と値」をセットで管理する方法
@@ -494,24 +570,49 @@ Type 'y' to continue calculating with 35.0, or type 'n' to start a new calculati
 ###テスト観点
 
 #観点1：正常な演算子を入力した場合
--入力: 数値=5 演算子=+  数値=3
--期待結果:5 + 3 = 8 と表示された
+- 入力: 数値=5 　演算子=+  数値=3
+
+- 期待結果:5 + 3 = 8 と表示される
+
+- 実行結果:5 + 3 = 8 と表示された
+
+---
 
 #観点2：存在しない演算子を入力した場合
--入力: 数値=5 演算子=a
--期待結果:"+, -, *, / のいずれかを入力してください" と表示される 再度演算子入力を求められる
+-　入力: 数値=5 演算子=a
+
+-　期待結果:"+, -, *, / のいずれかを入力してください" と表示される 再度演算子入力を求められる
+
+- 実行結果:"+, -, *, / のいずれかを入力してください" と表示された 再度演算子入力を求められた
+
+---
 
 #観点3：全角の演算子を入力した場合
--入力:数値=5 演算子=＋（全角）
--期待結果: 辞書に存在しないため"+, -, *, / のいずれかを入力してください" と表示される 再度演算子入力を求められる
+- 入力:数値=5 演算子=＋（全角）
+
+- 期待結果: 辞書に存在しないため"+, -, *, / のいずれかを入力してください" と表示される 再度演算子入力を求められる
+
+- 実行結果: 辞書に存在しないため"+, -, *, / のいずれかを入力してください" と表示された 再度演算子入力を求められた
+
+---
 
 #観点4：連続計算を選択した場合
--入力:5 * 7 = 35.0の計算後、続行確認にyを入力
--期待結果:35.0が次の計算の最初の数値として使用された
+- 入力:5 * 7 = 35.0の計算後、続行確認にyを入力
+
+- 期待結果:35.0が次の計算の最初の数値として使用される
+
+- 実行結果:35.0が次の計算の最初の数値として使用された
+
+---
 
 #観点5：計算を終了した場合
--入力:計算後の選択=n
--期待結果:現在の計算を終了し、新しい計算の最初の数値入力画面に戻った
+- 入力:計算後の選択=n
+
+- 期待結果:現在の計算を終了し、新しい計算の最初の数値入力画面に戻る
+
+- 実行結果:現在の計算を終了し、新しい計算の最初の数値入力画面に戻った
+
+---
 
 ###補足・注意点
 演算子は 半角の + - * / のみ有効
